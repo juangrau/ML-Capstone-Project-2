@@ -35,6 +35,8 @@ This project focuses on developing a machine learning model to predict the numbe
 | request.py | Script that simulates a request to the Flask service | 
 | ridge_regression_model_v1.pkl | Pickle file with the model | 
 | train.py | A separate script that train and saves the model |
+| data | folder with the data used on this project |
+| serverless | Directory with the files created to deploy the model on AWS Lambda Function |
 
 ### How to run this project
 
@@ -68,3 +70,31 @@ Make sure you have the requests library installed. To install it you can run the
 ```sh
 pip install requirements.txt
 ```
+
+### AWS Lambda Deployment
+
+As described on the table above there the **serverless** directory contains all the files required to deploy the project as a AWS Lambda function.
+
+The lambda function was deployed using a Docker container.
+
+To test this container you can follow these steps:
+
+1. Navigate to the project directory on your terminal.
+
+2. build and run the docker image:
+
+```sh
+docker build -t admission-imageaws .
+
+docker run -it -p 8080:8080 admission-imageaws:latest
+```
+
+To test it you can run the script test.py like this:
+
+```sh
+python test.py
+```
+
+The bad news is that I wan't able to get a successful local test. I'm guessing it has something to do with the scikit-learn library available on aws.
+
+In the case of tensorflow, on the course it was provided a wheel file to solve this, so I'll need to update this project in the near future to solve this aspect.

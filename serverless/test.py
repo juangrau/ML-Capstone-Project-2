@@ -1,12 +1,11 @@
 import requests
 
-'''
-Test Script 
+url = 'http://0.0.0.0:8080/2015-03-31/functions/function/invocations'
 
-'''
+#data = {'url': 'http://bit.ly/mlbookcamp-pants'}
 
-# Sample data
-sample_data = {
+data = {
+        'data': {
         'adm_type':'shift_from',
         'shift_from':'er',
         'ssc':'no',
@@ -17,15 +16,8 @@ sample_data = {
         'status':'discharge',
         'consultant':'tariq_nawaz',
         'doa':'1-Sep-25'
+        }
     }
 
-url = 'http://0.0.0.0:9696/predict'
-
-#result = requests.post(url, json=sample_data).json()
-
-result = requests.post(url, json=sample_data).json()
-
+result = requests.post(url, json=data).json()
 print(result)
-
-
-
