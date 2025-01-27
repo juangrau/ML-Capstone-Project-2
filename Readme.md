@@ -37,6 +37,7 @@ This project focuses on developing a machine learning model to predict the numbe
 | train.py | A separate script that train and saves the model |
 | data | folder with the data used on this project |
 | serverless | Directory with the files created to deploy the model on AWS Lambda Function |
+| requirements.txt | all libraries required |
 
 ### How to run this project
 
